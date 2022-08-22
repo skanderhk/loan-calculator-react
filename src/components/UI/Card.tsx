@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { IProduct } from "src/interfaces/Product"
 import useCurrencyFormat from "../../utils/useCurrencyFormat"
 import products from "./../../../build/public/products.json"
@@ -26,13 +26,17 @@ function Card() {
     }, [amount, product, months])
 
     return (
-        <div className="flex flex-col items-center bg-white rounded-[8px] shadow-default p-10 max-w-[460px]">
+        <div className="flex flex-col items-center bg-white rounded-[8px] shadow-default p-10 xl:max-w-[460px] sm:w-full">
             <div>
-                <div className="flex flex-row justify-center items-center gap-3">
+                <div className="flex flex-row justify-center items-center sm:gap-10 xl:gap-3">
                     {products.map((item) => (
                         <button key={item.id}>
                             <img
-                                className={item.id === "21" ? "h-[63px]" : "h-12"}
+                                className={
+                                    item.id === "21"
+                                        ? "sm:h-[300px] xl:h-[63px]"
+                                        : "sm:h-[240px] xl:h-12"
+                                }
                                 src={item.image}
                                 alt={item.name}
                                 onClick={() => {
@@ -50,7 +54,7 @@ function Card() {
                     </div>
                 )}
             </div>
-            <div className="flex flex-row justify-between items-center mb-5 gap-4">
+            <div className="flex xl:flex-row sm:flex-col justify-between items-center mb-5 gap-4 w-full">
                 <InputAmount
                     span={"Loan amount"}
                     value={amount}
@@ -68,24 +72,24 @@ function Card() {
                     max={product.max_tenure}
                 />
             </div>
-            <div className="flex flex-col border rounded-md min-w-full p-5">
-                <div className="flex flex-row justify-between items-center">
+            <div className="flex flex-col border rounded-md min-w-full xl:p-5 sm:p-10">
+                <div className="flex flex-row justify-between items-center sm:text-4xl xl:text-base">
                     <div>Monthly Amount</div>
-                    <div className="text-3xl text-secondary-default font-bold font-rubik">
+                    <div className="xl:text-3xl sm:text-6xl text-secondary-default font-bold font-rubik">
                         ${useCurrencyFormat(+total / +months)}
                     </div>
                 </div>
-                <p className="max-w-sm font-light mt-5">
+                <p className="max-w-full font-light mt-12 xl:text-base sm:text-4xl xl:text-justify sm:text-center">
                     You’re planning{" "}
                     <strong className="font-semibold">{months} monthly deposits</strong> to reach
-                    your <strong className="font-semibold">{amount}</strong> goal by{" "}
+                    your <strong className="font-semibold">${amount}</strong> goal by{" "}
                     <strong className="font-semibold">
                         {new Date(
                             new Date().setMonth(new Date().getMonth() + months)
                         ).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
                     </strong>
                     . The total amount loaned will be{" "}
-                    <strong className="font-semibold">{useCurrencyFormat(total)}</strong>.
+                    <strong className="font-semibold">${useCurrencyFormat(total)}</strong>.
                 </p>
             </div>
             <button className="bg-primary-default mt-5 p-4 px-20 rounded-[32px] text-white">

@@ -2,9 +2,9 @@ import React, { useState } from "react"
 
 function InputMonths(props: any) {
     return (
-        <div className="flex flex-col ">
+        <div className="flex flex-col sm:w-full">
             <span>{props.span}</span>
-            <div className="relative text-gray-600 border rounded-md flex flex-row justify-between items-center px-4 py-[6px]">
+            <div className="relative sm:h-20 xl:h-9 text-gray-600 border rounded-md flex flex-row justify-between items-center px-4 py-[6px]">
                 <button>
                     <svg
                         onClick={() => {

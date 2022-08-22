@@ -3,7 +3,7 @@ import useCurrencyFormat from "./../../utils/useCurrencyFormat"
 
 function InputAmount(props: any) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:w-full">
             <span>{props.span}</span>
             <div className="relative text-gray-600 focus-within:text-gray-400 border rounded-md">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -31,7 +31,7 @@ function InputAmount(props: any) {
                     max={props.max}
                     value={props.value}
                     step="any"
-                    className="py-1.5 pl-10 text-lg max-w-[215px] font-bold font-rubik rounded-md focus:outline-none focus:text-gray-900"
+                    className="py-1.5 pl-10 text-lg max-w-[215px] font-bold font-rubik rounded-md focus:outline-none focus:text-gray-900 sm:h-20 xl:h-9"
                     placeholder="Amount.."
                     onChange={(e) => {
                         e.preventDefault()
