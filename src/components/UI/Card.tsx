@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { IProduct } from "src/interfaces/Product"
-import useCurrencyFormat from "../../utils/useCurrencyFormat"
+import useCurrencyFormat from "../../hooks/useCurrencyFormat"
 import products from "./../../../build/public/products.json"
 import InputAmount from "./InputAmount"
 import InputMonths from "./InputMonths"
