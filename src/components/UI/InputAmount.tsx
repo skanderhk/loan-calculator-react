@@ -1,4 +1,5 @@
 import React from "react"
+import CurrencyInput from "react-currency-input-field"
 import useCurrencyFormat from "./../../utils/useCurrencyFormat"
 
 function InputAmount(props: any) {
@@ -23,21 +24,20 @@ function InputAmount(props: any) {
                         </svg>
                     </button>
                 </span>
-                <input
-                    disabled={props.disabled}
-                    type="text"
-                    pattern="^\d+(\.|\,)\d{2}$"
-                    min={0}
-                    max={props.max}
-                    value={props.value}
-                    step="any"
+                <CurrencyInput
+                    id="input-example"
                     className="py-1.5 pl-10 text-lg max-w-[215px] font-bold font-rubik rounded-md focus:outline-none focus:text-gray-900 sm:h-20 xl:h-9"
-                    placeholder="Amount.."
-                    onChange={(e) => {
-                        e.preventDefault()
-                        props.onValueChange(e.target.value)
-                    }}
+                    name="input-name"
+                    placeholder="Amount..."
+                    value={props.value}
+                    min={props.min}
+                    max={props.max}
+                    decimalsLimit={2}
+                    onValueChange={(value) => props.onValueChange(value)}
                 />
+            </div>
+            <div className="text-red-500 text-[10px] ">
+                {props.value < props.min && "*Select Loan Type First"}
             </div>
         </div>
     )

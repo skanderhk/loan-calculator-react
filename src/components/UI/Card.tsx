@@ -11,8 +11,6 @@ function Card() {
     const [months, setMonths] = useState(+product.min_tenure)
     const [total, setTotal] = useState(0)
 
-    console.log(amount)
-
     const handleAmountChange = (amount: number) => {
         setAmount(amount)
     }
@@ -54,7 +52,7 @@ function Card() {
                     </div>
                 )}
             </div>
-            <div className="flex xl:flex-row sm:flex-col justify-between items-center mb-5 gap-4 w-full">
+            <div className="flex xl:flex-row sm:flex-col justify-between items-start mb-2 mt-2 gap-4 w-full">
                 <InputAmount
                     span={"Loan amount"}
                     value={amount}
@@ -72,14 +70,14 @@ function Card() {
                     max={product.max_tenure}
                 />
             </div>
-            <div className="flex flex-col border rounded-md min-w-full xl:p-5 sm:p-10">
-                <div className="flex flex-row justify-between items-center sm:text-4xl xl:text-base">
+            <div className="flex flex-col border rounded-md min-w-full ">
+                <div className="flex flex-row xl:p-5 sm:p-10 justify-between items-center sm:text-4xl xl:text-base">
                     <div>Monthly Amount</div>
                     <div className="xl:text-3xl sm:text-6xl text-secondary-default font-bold font-rubik">
-                        ${useCurrencyFormat(+total / +months)}
+                        {amount ? "$" + useCurrencyFormat(+total / +months) : "$" + 0}
                     </div>
                 </div>
-                <p className="max-w-full font-light mt-12 xl:text-base sm:text-4xl xl:text-justify sm:text-center">
+                <p className="max-w-full xl:p-5 sm:p-10 font-light mt-2 xl:text-base sm:text-4xl xl:text-justify sm:text-center bg-gray-100">
                     You’re planning{" "}
                     <strong className="font-semibold">{months} monthly deposits</strong> to reach
                     your <strong className="font-semibold">${amount}</strong> goal by{" "}
