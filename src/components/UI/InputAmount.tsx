@@ -1,6 +1,5 @@
 import React from "react"
 import CurrencyInput from "react-currency-input-field"
-import useCurrencyFormat from "./../../utils/useCurrencyFormat"
 
 function InputAmount(props: any) {
     return (

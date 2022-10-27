@@ -10,10 +10,5 @@
         "javascript": "javascript",
         "html": "HTML"
     },
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#072576",
-        "titleBar.activeBackground": "#0A34A5",
-        "titleBar.activeForeground": "#F9FAFF"
-    },
     "window.title": "React Start Template"
 }
