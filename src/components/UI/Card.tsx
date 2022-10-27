@@ -46,11 +46,11 @@ function Card() {
                         </button>
                     ))}
                 </div>
-                {!product && (
+                {/* {!product && (
                     <div className="text-red-500 text-[10px] flex justify-center items-center">
                         *Select Loan Type First
                     </div>
-                )}
+                )} */}
             </div>
             <div className="flex xl:flex-row sm:flex-col justify-between items-start mb-2 mt-2 gap-4 w-full">
                 <InputAmount
